@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% load static %}
+{% for team in teams %}
+<html>
+<head>
+  
+<style>
+    
+
+
+.btn {
+    display: inline-block;
+
+  width : 200px;
+  height : 40px;
+
+  padding: 10px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  }
+
+
+
+.btn:hover {
+  background-position: right center; 
+}
+
+.btn-1 {
+  background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+
+}
+
+
+}
+</style>
+
+<style>
+    body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+.header-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.49),rgba(0, 0, 0, 0.89)),url('{{team.Bot}}');
+}
+.is-outlined {
+  background-color:transparent;
+  color:#fff;
+}
+.hero-cta {
+  padding: 30px 0;
+}
+.panel-block.section p {
+  font-size: 17px;
+  line-height: 1.4;
+  color:#95A5A6;
+}
+.section.main {
+  background-color:#F0F0F0;
+}
+.icon-block {
+  font-size:5em;
+}
+    </style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vote for {{team.Name}}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bulma.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/hero.css' %}">
+</head>
+<body>
+  <section class="hero is-primary is-large header-image">
+
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title is-2">
+          {{team.Name}}
+          
+        </h1>
+        <h2 class="subtitle is-5">
+          {{team.Desc}}
+        </h2>
+      </div>
+    </div>
+  </section>
+  <div class="hero-cta">
+    <nav class="level">
+      <div class="level-item has-text-centered">
+        <p class= "title">Support your Favourite Team By Clicking Vote
+            <a class="btn btn-1" href = "{{url}}" align = center>Vote</a>
+          </p>
+      </div>
+    </nav>
+  </div>
+  <div class = "container">
+    <h1 class="title is-2">
+      Favourited by<br><br>
+    </h1>
+    {% for i in backer%}
+    <h2 class="subtitle is-5">
+    {{i.Name}}</h2>
+    {%endfor%}
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          Made with <span class = "fa fa-heart"> </span> by <strong>DEVCOM</strong></a>.
+        </p>
+      </div>
+    </div>
+  </footer>
+  <script async type="text/javascript" src="../js/bulma.js"></script>
+
+  {% endfor %}
+
+</body>
+</html>
